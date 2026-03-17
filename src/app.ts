@@ -5,6 +5,7 @@ import { requireRole } from "./middleware/requireRole";
 import healthRouter from "./routes/health";
 import customersRouter from "./routes/customers";
 import projectsRouter from "./routes/projects";
+import invoicesRouter from "./routes/invoices";
 import adminRouter from "./routes/admin";
 
 export const app = express();
@@ -15,4 +16,5 @@ app.use(requestLogging);
 app.use("/health", healthRouter);
 app.use("/customers", customersRouter);
 app.use("/projects", projectsRouter);
+app.use("/invoices", invoicesRouter);
 app.use("/admin", auth, requireRole("admin"), adminRouter);
